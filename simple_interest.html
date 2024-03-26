@@ -1,11 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Interest Calculator</title>
+    <style>
+        body {
+            background-image: linear-gradient(135deg, #E2B0FF 10%, #9F44D3 100%);
+            height: 100vh;
+        }
+        .container{
+            width: 700px;
+            background-color: #dbd7d7;
+            display: block;
+            margin: 30px auto;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .app-title {
+            text-align: center;
+        }
+        .input-field{
+            width: 70%;
+            display: block;
+            margin: 30px auto;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .answer{
+            display: block;
+            margin-left: 40%;
+            font-size: 22px;
+            height: 40px;
+        }
+        .btn{
+            width: 150px;
+            font-size: 25px;
+            padding: 7px 14px;
+            display: block;
+            margin: 40px auto;
+            background-color: #622088;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 0 6px 5px #cbb2da;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Simple Interest Calculator</h1>
+    <h1 class="app-title">Simple Interest Calculator</h1>
+    <div class="container">
+        <input type="text" placeholder="Enter Principal Amount" class="input-field" id="principal">
+        <input type="text" placeholder="Enter Rate of Interest in % per annum" class="input-field" id="rate">
+        <input type="text" placeholder="Enter Time" class="input-field" id="time">
+        <p class="answer" id="ans">
+           
+        </p>
+
+        <button type="button" class="btn" onclick="calculate()">Calculate</button>
+        <button type="button" class="btn" onclick="reset()">Reset</button>
+
+    </div>
+
+    <script>
+        function calculate(){
+            const input1= document.getElementById("principal");
+            const input2= document.getElementById("rate");
+            const input3= document.getElementById("time")
+            const ansElement= document.getElementById("ans");
+
+            const simpleInterest= (parseInt(input1.value) * parseInt(input2.value) * parseInt(input3.value)/100);
+            ansElement.innerText= `Answer: ${simpleInterest}`;
+        }
+
+        function reset(){
+            const input1= document.getElementById("principal");
+            const input2= document.getElementById("rate");
+            const input3= document.getElementById("time")
+            const ansElement= document.getElementById("ans");
+
+            input1.value= "";
+            input2.value= "";
+            input3.value= "";
+            ansElement.innerText= "";
+
+        }
+    </script>
+
 </body>
+
 </html>
